@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/signup.css">
+    <link rel="shortcut icon" href="https://cdn.glitch.global/c53b69db-710a-4b7f-a48c-567de2d5162f/yellow-discord-icon-15.jpg?v=1706072024982"/>
+    <script src="https://kit.fontawesome.com/5da94b93f5.js" crossorigin="anonymous"></script>
+    <script src="js/signup.js" defer></script>
+    <title>Dizzcord - Đăng kí</title>
+</head>
+<body>
+    <div class="container">
+      <form method="POST">
+        <div><img src="https://cdn.glitch.global/db92dd17-93d2-4842-bb1c-9484fe068cee/avatar-dizzcord.jpg?v=1707889109236"></div>
+        <div class="title-sign-up">Đăng kí</div>
+        <div class="area">
+          <input type="text" name="username" class="user-name-input" maxlength="30" placeholder="Tên của bạn vd: Duy ắc quy" require>
+          <div class="user-name-error"></div>
+        </div>
+        <div class="area">
+          <input type="text" name="id" class="id-input" maxlength="30" placeholder="Đặt ID vd: duy123" require>
+                               
+          <div class="id-error">
+            {{#if idError}} 
+              <span><i class="fa-solid fa-triangle-exclamation"></i></span>
+              {{idError}}
+            {{/if}}  
+          </div>
+           
+        </div>
+        <div class="area">
+          <input type="password" name="password" class="password-input" maxlength="50" placeholder="Đặt mật khẩu vd: duyABCDE" require>
+
+          <div class="password-error">
+            {{#if passwordError}}
+              <span><i class="fa-solid fa-triangle-exclamation"></i></span>
+              {{passwordError}}
+            {{/if}}
+          </div>
+          
+        </div>
+        <div class="area">
+          <input type="password" name="confirmPassword" id="confirm-password-input" maxlength="50" placeholder="Xác nhận lại mật khẩu" require>
+          
+          <div class="confirm-password-error">
+            {{#if confirmPasswordError}}
+              <span><i class="fa-solid fa-triangle-exclamation"></i></span>
+              {{confirmPasswordError}}
+            {{/if}}
+          </div>
+          
+        </div>
+        
+        <div class="submit-button">
+          <button type="submit" class="submit-button-main">
+            Đăng kí
+          </button>
+          <div>
+            Bạn đã có tài khoản?
+            <span><a href="/login" class="sign-in-suggest"> Đăng nhập</a></span>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    {{#if errorMessage}}
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          alert('{{{errorMessage}}}');
+        });
+      </script>
+    {{/if}}
+</body>
+</html>

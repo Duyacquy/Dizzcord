@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="shortcut icon" href="https://cdn.glitch.global/c53b69db-710a-4b7f-a48c-567de2d5162f/yellow-discord-icon-15.jpg?v=1706072024982"/>
+    <script src="https://kit.fontawesome.com/5da94b93f5.js" crossorigin="anonymous"></script>
+    <script src="js/login.js" defer></script>
+    <title>Dizzcord - Đăng nhập</title>
+</head>
+<body>
+    <div class="container">
+      <form method="POST">
+        <div><img src="https://cdn.glitch.global/db92dd17-93d2-4842-bb1c-9484fe068cee/avatar-dizzcord.jpg?v=1707889109236"></div>
+        <div class="title-sign-in">Đăng nhập</div>
+        <label>ID của bạn:</label>
+        <input type="text" name="id" maxlength="30" placeholder="Nhập ID">
+        <label>Mật khẩu:</label>
+        <div class="password">
+          <input type="password" name="password" id="password" maxlength="50" placeholder="Nhập mật khẩu" >
+          <span><i class="fa-solid fa-eye-slash"></i></span>
+        </div>
+        <div class="sign-in-error hidden">
+          <span><i class="fa-solid fa-triangle-exclamation"></i></span>
+          ID hoặc mật khẩu không đúng!
+        </div>
+        <button type="submit">
+          Đăng nhập
+        </button>
+        <div>
+          Bạn chưa có tài khoản?
+          <span><a href="/sign-up" class="sign-up-suggest"> Đăng kí ngay</a></span>
+        </div>
+      </form>
+    </div>
+</body>
+</html>

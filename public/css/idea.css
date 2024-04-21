@@ -1,0 +1,134 @@
+:root {
+  --radius--percent: 10%;
+  --background-color: rgb(44,45,46,1);
+  --header-color: rgb(68,69,70,1);
+  --post-color: rgb(82,83,84,1);
+  --like-color: rgb(62,63,64,1);
+  --color-white-lighter: rgb(255,255,255,0.9);
+  --noti-color: rgb(16,17,18,1);
+  --font-size1: 18px;
+  --font-size2: 16px;
+  --font-size3: 14px;
+  --font-size4: 17px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: rgb(233,235,240);
+  overflow: hidden;
+}
+b {
+  font-size: 17px;
+}
+a {
+  text-decoration: none;
+  color: rgb(233,235,240);
+}
+img {
+  max-height: 100%;
+  min-width: 100%;
+  border-radius: 50%;
+}
+
+.menu {
+  display: flex;
+  background-color: var(--header-color);
+  height: 10vh;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  margin-left: 2vw;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+.fa-discord {
+  color: rgb(249,211,66,1); 
+  font-size: 50px;
+}
+
+.detail {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 0.9vw;
+}
+
+.main-page {
+  background-color: var(--background-color);
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text1 {
+  font-size: 22px;
+  margin-bottom: 1.5vh;
+  text-align: center;
+}
+
+.text2 {
+  font-size: 22px;
+  margin-bottom: 6vh;
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 420px;
+}
+
+.facebook {
+  height: 65px;
+  width: 65px;
+  cursor: pointer;
+}
+.facebook:hover {
+  scale: 1.1;
+}
+
+.messager {
+  height: 65px;
+  width: 65px;
+  cursor: pointer;
+}
+.messager:hover {
+  scale: 1.1;
+}
+
+.zalo {
+  height: 65px;
+  width: 65px;
+  cursor: pointer;
+}
+.zalo:hover {
+  scale: 1.1;
+}
+
+.gmail {
+  height: 65px;
+  width: 65px;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 50%;
+}
+.gmail:hover {
+  scale: 1.1;
+}
+
+.hidden {
+  display: none;
+}
+
+.keep {
+  background-color: rgb(102, 104, 106);
+}

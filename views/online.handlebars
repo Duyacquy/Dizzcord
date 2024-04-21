@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/online.css">
+    <link rel="shortcut icon" href="https://cdn.glitch.global/c53b69db-710a-4b7f-a48c-567de2d5162f/yellow-discord-icon-15.jpg?v=1706072024982"/>
+    <script src="https://kit.fontawesome.com/5da94b93f5.js" crossorigin="anonymous"></script>
+    <script src="/js/online.js" type="text/javascript" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+    </script>
+    <title>Dizzcord</title>
+  </head>
+  
+  <body>
+    <div class="menu">
+      
+      <div class="logo"><span><i class="fa-brands fa-discord"></i></span></div>
+      
+      <div class="main-bar">
+        <div class="main__item" id="main-item1">Trực tuyến</div>
+        <a class="main__item" href="/all">Tất cả</a>
+        <a class="main__item" href="/await">Đang chờ xử lí</a>
+        <a class="main__item" href="/restrict">Đã chặn</a>
+        <a class="main__item" id="add-friend" href="/add-friend">Thêm bạn</a>
+      </div>
+      
+      <div class="right-bar">
+        
+        <div class="notiArea">
+          <span><i class="fa-solid fa-bell"></i></span>
+          <div class="noti">
+              <div class="noti-header">
+                <div id="noti-header__text">Thông báo</div>
+              </div>
+              <div class="noti-main">
+                {{#each userNoti}}
+                  <div class="noti-main__item">
+                    <div class="noti-main__image"><img src="{{this.avatar}}"></div>
+                    <div class="noti-main__text">{{this.username}} ( #{{this.id}} ) {{this.noti}}</div>
+                  </div>
+                {{/each}}
+              </div>
+          </div>
+        </div>
+        
+        <div class="accountArea">
+          <div id="account"><img src="{{user.avatar}}"></div>
+          <div class="option-table">
+            
+            <div class="option-table__item" id="option-table__info">
+              <div class="option-table__item-avatar"><img src="{{user.avatar}}"></div>
+              <div class="option-table__item-info">
+                <div class="option-table__item-name">{{user.username}}</div>
+                <div class="option-table__item-id">#{{user.id}}</div>
+              </div>
+            </div>
+            
+            <div class="option-table__main">
+              <a class="option-table__button" href="/userhome">
+                <span><i class="fa-solid fa-house-user"></i></span>
+                <div class="option-table__item id1">Trang cá nhân</div>
+              </a>
+              <a class="option-table__button" href="/setting"> 
+                <span><i class="fa-solid fa-gear"></i></span>
+                <div class="option-table__item id2">Cài đặt</div>
+              </a>
+              <a href="/help" target="_blank" class="option-table__button">
+                <span id="tro-giup-icon"><i class="fa-solid fa-question"></i></span>
+                <div class="option-table__item id3">Trợ giúp</div>
+              </a>
+              <a href="/idea" target="_blank" class="option-table__button">
+                <span><i class="fa-solid fa-circle-info"></i></span>
+                <div class="option-table__item id4">Đóng góp ý kiến</div>
+              </a>
+              <a href="/logout" class="option-table__button__signout">
+                <span><i class="fa-solid fa-door-closed"></i></span>
+                <div class="option-table__item id5">Đăng xuất</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+    </div>
+    
+    <div class="main-page">
+      <div class="col-left">
+        <a href="/" class="col-left__item main__item active" id="col-left__item1">
+          <span><i class="fa-solid fa-house"></i></span>
+          <b>Trang chủ</b>
+        </a>
+        <div class="col-left__item" id="col-left__item2">
+          <span><i class="fa-solid fa-user-group"></i></span>
+          <b>Bạn bè</b>
+          <span><i class="fa-solid fa-angle-down"></i></span>
+        </div>
+        <div class="col-left-friend-list hidden">
+          {{#each tabFriend}}
+            <div class="col-left-friend-item">
+              <div class="col-left-friend-item__avatar"><img src="{{this.avatar}}"></div>
+              <div class="col-left-friend-item__info">
+                <div class="col-left-friend-item__name">{{this.username}}</div>
+                <div class="col-left-friend-item__id">#{{this.id}}</div>
+              </div>
+              <div class="col-left-other-item">
+                <form method="POST" action="/message">
+                  <div class="fa-comment-note col hidden">Nhắn tin</div>
+                  <input name="idFriend" value="{{this.id}}" hidden> 
+                  <label for="messageButton-{{this.id}}"><i class="fa-solid fa-comment col"><button id="messageButton-{{this.id}}" type="submit" hidden></button></i></label>
+                </form>
+                <div>
+                  <div class="fa-ellipsis-vertical-note col hidden">Những mục khác</div>
+                  <span><i class="fa-solid fa-ellipsis-vertical col"></i></span>
+                  <div class="col-left-setting hidden">
+                    <form action="/online" method="POST">
+                      <input hidden name="q" value="restrict">
+                      <input hidden name="idFriend" value="{{this.id}}">
+                      <button class="col-left-setting__delete" type="submit">Chặn bạn</button>
+                    </form>
+                  </div>
+                </div>       
+              </div>      
+            </div>
+          {{/each}}
+        </div>
+      </div>
+
+      <div class="tab-main">
+        <div class="tab-main__search">
+          <input type="text" class="tab-main__input" placeholder="Tìm kiếm">
+          <div class="tab-main__search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        </div>
+        <div class="tab-main__note">Bạn bè đang trực tuyến</div>
+        {{#if noRequestFriend}} 
+          <div class="no-request-friend">{{noRequestFriend}}</div>
+        {{/if}} 
+        {{#each onlineFriends}}
+          <div class="tab-main__friends">
+            <div class="tab-main__friend-image"><img src="{{this.avatar}}"></div>
+            <div class="tab-main__friend-description">
+              <div class="tab-main__friend-name">{{this.username}}</div>
+              <div class="tab-main__friend-condition">#{{this.id}}</div>
+            </div> 
+            <div>
+              <form method="POST" action="/message">
+                <div class="fa-comment-note tab">Nhắn tin</div>
+                <input name="idFriend" value="{{this.id}}" hidden> 
+                <label for="messageButtonn-{{this.id}}"><i class="fa-solid fa-comment tab"><button id="messageButtonn-{{this.id}}" type="submit" hidden></button></i></label>
+              </form>
+            </div>
+            <div>
+              <div class="fa-ellipsis-vertical-note tab">Những mục khác</div>
+              <span><i class="fa-solid fa-ellipsis-vertical tab"></i></span>
+              <div class="fa-ellipsis-item hidden" >
+                <div class="fa-ellipsis-video">Bắt đầu cuộc gọi video</div>
+                <div class="fa-ellipsis-call">Bắt đầu cuộc gọi thoại</div>
+                <form action="/online" method="POST">
+                  <input hidden name="q" value="restrict">
+                  <input hidden name="idFriend" value="{{this.id}}">
+                  <button class="fa-ellipsis-delete" type="submit">Chặn bạn</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      <div class="col-right"></div>     
+
+    </div>
+
+  </body>
+</html>

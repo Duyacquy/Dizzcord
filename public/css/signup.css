@@ -1,0 +1,134 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url('https://cdn.glitch.global/db92dd17-93d2-4842-bb1c-9484fe068cee/blur-image.jpg?v=1707888202793');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+  }
+  .container {
+    background-color: white;
+    color: black;
+    height: 90vh;
+    width: 35vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  img {
+    height: 70px;
+    width: 70px;
+    margin-top: 12vh;
+  }
+  
+  .title-sign-up {
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    font-size: 45px;
+    font-weight: bold;
+  }
+  
+  input {
+    outline: 1px solid black;
+    border: none;
+    height: 5vh;
+    width: 25vw;
+    line-height: 5vh;
+    font-size: 16px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-top: 1.5vh;
+    margin-bottom: 2.8vh;
+    padding-left: 1vw;
+  }
+  input::placeholder {
+    font-size: 14px;
+  }
+  input:focus {
+    border: none;
+    outline: 2px solid rgb(4,106,228,1);
+  }
+  
+  .area {
+    position: relative;
+  }
+  
+  .user-name-error {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    top: 7.75vh;
+    left: 1vw;
+  }
+  
+  .id-error {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    top: 7.75vh;
+    left: 1vw;
+  }
+  
+  .password-error {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    top: 7.75vh;
+    left: 1vw;
+  }
+  
+  .confirm-password-error {
+    font-size: 14px;
+    color: red;
+    position: absolute;
+    top: 7.9vh;
+    left: 1vw;
+  }
+  
+  .submit-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 76vh;
+  }
+  
+  button { 
+    background-color: rgb(4,106,228,1);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    height: 5.4vh;
+    width: 26vw;
+    margin-bottom: 1.7vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: rgb(4,106,255,1);
+  }
+  
+  .sign-in-suggest {
+    text-decoration: none;
+    color: red; 
+  }
+  .sign-in-suggest:hover {
+    text-decoration: underline;
+  }
