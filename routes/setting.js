@@ -10,7 +10,7 @@ const { error } = require('console');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        if (file.mimetype === "image/jpg" || file.mimetype === "image/jpge" || file.mimetype === "image/png") {
+        if (1 || file.mimetype === "image/jpg" || file.mimetype === "image/jpge" || file.mimetype === "image/png") {
             cb(null, 'public/img');
         } else {
             cb(new Error('not image'), false);

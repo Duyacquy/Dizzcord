@@ -161,7 +161,7 @@
           <form method="POST" action="/setting/changeAvatar" enctype="multipart/form-data">
             <div class="change-avatar hidden">
               <div class="change-avatar-main">
-                <input type="file" id="fileInput" name="imgSrc" hidden>
+                <input type="file" accept="image/*" id="fileInput" name="imgSrc" hidden>
                 <input type="text" name="userId" value="{{user.id}}" hidden>
                 <label class="label-change-avatar" for="fileInput">
                     <span><i class="fa-solid fa-camera"></i></span>

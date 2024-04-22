@@ -47,7 +47,6 @@ app.set('views', path.join(__dirname, 'views'))
 route(app)
 
 io.on('connection', (socket) => {
-    console.log("Có thằng vừa vào, cẩn thận nó là hacker!")
     socket.on('offline',async (a) => {
         const user = await User.findOne({id: a});
             await User.updateOne(
